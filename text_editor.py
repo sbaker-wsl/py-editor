@@ -94,7 +94,6 @@ class TextEditor:
                 if not self.redo_stack.is_empty() and self.redo_stack.peek().character == "delete":
                     while not self.redo_stack.is_empty() and self.redo_stack.peek().character == "delete":
                         location = self.redo_stack.peek().location
-                        print(self.redo_stack.peek().character)
                         self.undo_stack.push(Action(location, self.txt_box.get(self.txt_box.index(location), self.txt_box.index(location+"+1c"))))
                         self.txt_box.delete(self.redo_stack.peek().location)
                         self.redo_stack.pop()
